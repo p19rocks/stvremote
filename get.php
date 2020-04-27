@@ -9,10 +9,14 @@
 	}
 	else
 	{
+		$data=file_get_contents("data.txt");
+		echo $data;
 		$file = fopen("update.txt", 'w');
 		fwrite($file, time());
 		fclose($file);
-		$data=file_get_contents("data.txt");
-		echo $data;
+		$file = fopen("data.txt", 'w');
+		$newVal=explode(",",$data);
+		fwrite($file, " ,".$newVal[1]);
+		fclose($file);
 	}
 ?>

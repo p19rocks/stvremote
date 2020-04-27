@@ -1,84 +1,83 @@
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
-	<title>Remote</title>
+	<title>STV Remote</title>
 	<meta charset="utf-8">
 	<meta name="description" content="Give me your feedback about Set Wallpaper">
 	<meta name="viewport" content="max-width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
-<!--	<link rel='stylesheet' type="text/css" href='style.css'> -->
 	<style>
-.button {
-	background-color: #4CAF50;
-    border: 2px solid #4CAF50;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 40px;
-    margin: 4px 2px;
-    cursor: pointer;
-	color:white;
-    border-radius: 25px;
-    box-shadow: 0 5px #367c39;
-}
+	.button {
+		background-color: #4CAF50;
+		border: 2px solid #4CAF50;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 40px;
+		margin: 4px 2px;
+		cursor: pointer;
+		color:white;
+		border-radius: 25px;
+		box-shadow: 0 5px #367c39;
+	}
 
-.button:active {
-  box-shadow: 0 0px #2f6a31;
-  transform: translateY(5px);
-}
+	.button:active {
+	  box-shadow: 0 0px #2f6a31;
+	  transform: translateY(5px);
+	}
 
-.grp {
-	padding: 5px 32px;
-}
+	.grp {
+		padding: 5px 32px;
+	}
 
-.name {
-	position: absolute;
-    left: 20%;
-    right: 20%;
-	font-size: 20px;
-	text-align: center;
-    text-decoration: none;
-    display: inline-block;
-	background-color:#007acc;
-	padding: 15px 32px;
-    color:#ffffff;
-	border-radius: 25px;
-	box-shadow: 0 5px #003d66;
-}
+	.name {
+		position: absolute;
+		left: 20%;
+		right: 20%;
+		font-size: 20px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		background-color:#007acc;
+		padding: 15px 32px;
+		color:#ffffff;
+		border-radius: 25px;
+		box-shadow: 0 5px #003d66;
+	}
 
-.power {
-	position: absolute;
-    left: 5px;
-	top: 15px;
-    font-size: 25px;
-	padding: 3px 8px;
-	border-radius: 50%;
-	text-align: center;
-    text-decoration: none;
-    display: inline-block;
-	color:white;
-	background-color: #ff6666;
-	border: 3px solid #e60000;
-    box-shadow: 0 3px #990000;
-}
+	.power {
+		position: absolute;
+		left: 5px;
+		top: 15px;
+		font-size: 25px;
+		padding: 3px 8px;
+		border-radius: 50%;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		color:white;
+		background-color: #ff6666;
+		border: 3px solid #e60000;
+		box-shadow: 0 3px #990000;
+	}
 
-.button:active {
-  box-shadow: 0 0px #990000;
-  transform: translateY(3px);
-}
+	.button:active {
+	  box-shadow: 0 0px #990000;
+	  transform: translateY(3px);
+	}
 
-#status {
-	position: absolute;
-    right: 10px;
-	top: 10px;
-    font-size: 40px;
-	padding: 1px 8px;
-	border-radius: 50%;
-	text-align: center;
-    text-decoration: none;
-    display: inline-block;
-	color:white;
-}
+	#status {
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		font-size: 40px;
+		padding: 1px 8px;
+		border-radius: 50%;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		color:white;
+	}
 	</style>
 	<script type="text/javascript">
 	function status() {
@@ -148,12 +147,6 @@
 				x="none";
 				break;
 		}
-		/*
-		var data = new FormData();
-		data.append("data" , x);
-		var xhr = new XMLHttpRequest();
-		xhr.open( 'post', 'save.php', true );
-		xhr.send(data);		*/
 		
 		var xhr = new XMLHttpRequest();
 		xhr.open( 'GET', 'save.php?data=' + x, true );
