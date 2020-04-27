@@ -1,5 +1,5 @@
 # stvremote
-Remote for android smart TV boxes 
+Remote for android smart TV boxes <br>
 Demo video : https://youtu.be/_2YqXkzXVC8
 
 Note: receiver must be rooted
