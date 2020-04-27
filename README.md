@@ -7,7 +7,7 @@ Note: receiver must be rooted
 A. Server setup<br>
     simply host the pages in any public server or your own local server<br>
 B. Receiver setup:<br>
-    1.Install <a href="https://play.google.com/store/apps/details?id=com.llamalab.automate&hl=en_US"Automate</a><br>
+    1.Install <a href="https://play.google.com/store/apps/details?id=com.llamalab.automate&hl=en_US">Automate</a><br>
     2.Import the flow<br>
     3.Edit HTTP request block to your server<br>
     2.Run<br>
