@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+	<title>Remote</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Give me your feedback about Set Wallpaper">
+	<meta name="viewport" content="max-width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+<!--	<link rel='stylesheet' type="text/css" href='style.css'> -->
+	<style>
+.button {
+	background-color: #4CAF50;
+    border: 2px solid #4CAF50;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 40px;
+    margin: 4px 2px;
+    cursor: pointer;
+	color:white;
+    border-radius: 25px;
+    box-shadow: 0 5px #367c39;
+}
+
+.button:active {
+  box-shadow: 0 0px #2f6a31;
+  transform: translateY(5px);
+}
+
+.grp {
+	padding: 5px 32px;
+}
+
+.name {
+	position: absolute;
+    left: 20%;
+    right: 20%;
+	font-size: 20px;
+	text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	background-color:#007acc;
+	padding: 15px 32px;
+    color:#ffffff;
+	border-radius: 25px;
+	box-shadow: 0 5px #003d66;
+}
+
+.power {
+	position: absolute;
+    left: 5px;
+	top: 15px;
+    font-size: 25px;
+	padding: 3px 8px;
+	border-radius: 50%;
+	text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	color:white;
+	background-color: #ff6666;
+	border: 3px solid #e60000;
+    box-shadow: 0 3px #990000;
+}
+
+.button:active {
+  box-shadow: 0 0px #990000;
+  transform: translateY(3px);
+}
+
+#status {
+	position: absolute;
+    right: 10px;
+	top: 10px;
+    font-size: 40px;
+	padding: 1px 8px;
+	border-radius: 50%;
+	text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	color:white;
+}
+	</style>
+	<script type="text/javascript">
+	function status() {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				if(this.responseText=="DOWN")
+					document.getElementById("status").style.color ="#ff0000";
+				else
+					document.getElementById("status").style.color ="#00ff00";
+		   }
+		};
+		xhttp.open("GET", "get.php?status=1", true);
+		xhttp.send();
+	}
+	function writeCommand(value) {
+		var x;
+		switch(value) {
+			case 1:
+				x="19";
+				break;
+			case 2:
+				x="21";
+				break;
+			case 3:
+				x="23";
+				break;
+			case 4:
+				x="22";
+				break;
+			case 5:
+				x="20";
+				break;
+			case 6:
+				x="111";
+				break;
+			case 7:
+				x="3";
+				break;
+			case 8:
+				x="2";
+				break;
+			case 9:
+				x=document.getElementById("tvalue").value;
+				document.getElementById("tvalue").value="";
+				break;
+			case 10:
+				x="wxza";
+				break;
+			case 11:
+				x="88";
+				break;
+			case 12:
+				x="85";
+				break;
+			case 13:
+				x="87";
+				break;
+			case 14:
+				if (confirm("Turn OFF your TV?")) {
+					x="26";
+				}
+				else
+					x=" ";
+				break;
+			default:
+				x="none";
+				break;
+		}
+		/*
+		var data = new FormData();
+		data.append("data" , x);
+		var xhr = new XMLHttpRequest();
+		xhr.open( 'post', 'save.php', true );
+		xhr.send(data);		*/
+		
+		var xhr = new XMLHttpRequest();
+		xhr.open( 'GET', 'save.php?data=' + x, true );
+		xhr.send();
+	}
+	</script>
+	</head>
+<body bgcolor="#ccebff">
+<a href="javascript:void(0);" class='button power' onClick="writeCommand(14);">&#920;</a>
+<div id='status' onClick="status();">&#9865;</div>
+<div align='center' class='name'><b>STV Remote</b></div>
+<div align='center'>
+<table>
+<tr><td style="height:87px"></td></tr>
+
+<tr><td colspan="3"><table><tr><td><input type="text" id='tvalue'></td><td><input type="submit" onClick="writeCommand(9);">&nbsp;<button onClick="writeCommand(10);">Clear</button></td></tr></table></td></tr>
+<tr><td style="height:5px"></td></tr>
+<tr><td><a href="javascript:void(0);" class='button' style="font-size: 25px;padding: 3px 35px;" onClick="writeCommand(11);"><</a></td><td><a href="javascript:void(0);" class='button' style="font-size: 20px;padding: 5px 29px;" onClick="writeCommand(12);">&#10148;||</a></td><td><a href="javascript:void(0);" class='button' style="font-size: 25px;padding: 3px 35px;" onClick="writeCommand(13);">></a></td></tr>
+
+<tr><td style="height:10px"></td></tr>
+
+<tr><td></td><td><a href="javascript:void(0);" class='button' onClick="writeCommand(1);">&#8593;</a></td><td></td></tr>
+<tr><td><a href="javascript:void(0);" class='button' style="padding: 15px 22px;" onClick="writeCommand(2);">&#8592;</a></td><td><a href="javascript:void(0);" class='button' style="font-size: 40px;" onClick="writeCommand(3);">&#43;</a></td><td><a href="javascript:void(0);" class='button' style="padding: 15px 22px;" onClick="writeCommand(4);">&#8594;</a></td></tr>
+<tr><td></td><td><a href="javascript:void(0);" class='button' onClick="writeCommand(5);">&#8595;</a></td><td></td></tr>
+
+<tr><td style="height:15px"></td></tr>
+
+<tr><td><a href="javascript:void(0);" class='button grp' onClick="writeCommand(8);">&#61;</a></td><td><a href="javascript:void(0);" class='button grp' onClick="writeCommand(7);">0</a></td><td><a href="javascript:void(0);" class='button grp' onClick="writeCommand(6);">&#171;</a></td></tr>
+
+<tr></tr>
+</table>
+</div>
+
+
+</body>
+</html>
