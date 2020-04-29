@@ -84,14 +84,17 @@
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-				if(this.responseText=="DOWN")
+				if(this.responseText=="DOWN") {
 					document.getElementById("status").style.color ="#ff0000";
+					setTimeout(status, 3000);
+				}
 				else
 					document.getElementById("status").style.color ="#00ff00";
 		   }
 		};
 		xhttp.open("GET", "get.php?status=1", true);
 		xhttp.send();
+		
 	}
 	function writeCommand(value) {
 		var x;
@@ -154,7 +157,7 @@
 	}
 	</script>
 	</head>
-<body bgcolor="#ccebff">
+<body bgcolor="#ccebff" onload="status();">
 <a href="javascript:void(0);" class='button power' onClick="writeCommand(14);">&#920;</a>
 <div id='status' onClick="status();">&#9865;</div>
 <div align='center' class='name'><b>STV Remote</b></div>

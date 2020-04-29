@@ -1,22 +1,20 @@
 <?php
 	if(!empty($_GET['status']))
 	{
-		$data=file_get_contents("update.txt");
-		if(time()>=($data+10))
+		$data=file_get_contents("data.txt");
+		$val=explode(",",$data);
+		if(time()>=($val[2]+10))
 			echo "DOWN";
 		else
 			echo "UP";
+		//file_put_contents("data.txt", $val[0].",".$val[1].",".$val[2].",".($val[3]+1));
 	}
 	else
 	{
 		$data=file_get_contents("data.txt");
-		echo $data;
-		$file = fopen("update.txt", 'w');
-		fwrite($file, time());
-		fclose($file);
-		$file = fopen("data.txt", 'w');
-		$newVal=explode(",",$data);
-		fwrite($file, " ,".$newVal[1]);
-		fclose($file);
+		$val=explode(",",$data);
+		echo $val[0].",".$val[1];
+		file_put_contents("data.txt", "NA,DOWN,".time().",".($val[3]+1));
+		
 	}
 ?>

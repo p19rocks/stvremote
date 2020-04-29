@@ -1,12 +1,13 @@
 <?php
 if(!empty($_GET['data'])){
 	if($_GET['data']=='wxza')
-		$data = " ,".time();
+		$newData = " ,UP";
 	else
-		$data = $_GET['data'].",".time();
+		$newData = $_GET['data'].",UP";
 	
-	$file = fopen("data.txt", 'w');
-	fwrite($file, $data);
-	fclose($file);
+	$data=file_get_contents("data.txt");
+	$val=explode(",",$data);
+	file_put_contents("data.txt", $newData.",".$val[2].",".($val[3]+1));
+	
 }
 ?>
